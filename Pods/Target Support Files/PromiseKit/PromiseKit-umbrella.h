@@ -17,6 +17,8 @@
 #import "NSTask+AnyPromise.h"
 #import "NSNotificationCenter+AnyPromise.h"
 #import "PMKFoundation.h"
+#import "CALayer+AnyPromise.h"
+#import "PMKQuartzCore.h"
 #import "PMKUIKit.h"
 #import "UIView+AnyPromise.h"
 #import "UIViewController+AnyPromise.h"
