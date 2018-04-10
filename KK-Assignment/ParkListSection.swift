@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import RxDataSources
 
 struct ParkListSection {
     var header: String
     var items: [Item]
 }
 
-extension ParkListSection {
+extension ParkListSection: SectionModelType {
     typealias Item = Park
 
     init(original: ParkListSection, items: [Item]) {
         self = original
-        items = items
+        self.items = items
     }
 }
