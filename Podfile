@@ -7,6 +7,7 @@ target 'KK-Assignment' do
 
   # Pods for KK-Assignment
   pod 'RxSwift'
+  pod 'RxDataSources'
   pod 'SDWebImage'
   pod 'Alamofire'
   pod 'SwiftyJSON'
