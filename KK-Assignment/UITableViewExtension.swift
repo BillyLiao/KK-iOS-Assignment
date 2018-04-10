@@ -6,7 +6,8 @@
 //  Copyright © 2018年 廖慶麟. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 extension UITableView {
     func register<T: UITableViewCell>(with aCellClass: T.Type) {
         guard let cellClassName = "\(aCellClass)".components(separatedBy: ".").first else { return }
