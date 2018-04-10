@@ -50,7 +50,7 @@ public protocol NetworkRequest {
 	var encoding: Alamofire.ParameterEncoding { get }
 	
 	var parameters: [String : Any]? { get }
-	var headers: [String : String] { get }
+    var headers: [String : String] { get }
 	var multipartUploadData: Data { get }
 	var multipartUploadName: String { get }
 	var multipartUploadFileName: String { get }
@@ -71,7 +71,8 @@ public extension NetworkRequest {
 	public var encoding: Alamofire.ParameterEncoding { return JSONEncoding.default }
 	
 	public var parameters: [String : Any]? { return nil }
-	// public var headers: [String : String] { return ["Authorization": "Bearer \(accessToken)", "Colorgy-App-Platform": "ios", "Colorgy-App-Version": ColorgyConfig.appVersion] }
+    // public var headers: [String : String] { return ["Authorization": "Bearer \(accessToken)", "Colorgy-App-Platform": "ios", "Colorgy-App-Version": ColorgyConfig.appVersion] }
+    public var headers: [String : String] { return [:] }
     public var multipartUploadData: Data { return Data() }
 	public var multipartUploadName: String { return "" }
 	public var multipartUploadFileName: String { return "" }
