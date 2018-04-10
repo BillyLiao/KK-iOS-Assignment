@@ -26,6 +26,8 @@ final internal class ParkTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.selectionStyle = .none
+        
         configureParkImageView()
         configureParkImageView()
         configureNameLabel()
