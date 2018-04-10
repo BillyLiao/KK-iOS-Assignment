@@ -1,5 +1,14 @@
 PODS:
   - Alamofire (4.7.0)
+  - PromiseKit (6.2.1):
+    - PromiseKit/CorePromise (= 6.2.1)
+    - PromiseKit/Foundation (= 6.2.1)
+    - PromiseKit/UIKit (= 6.2.1)
+  - PromiseKit/CorePromise (6.2.1)
+  - PromiseKit/Foundation (6.2.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.2.1):
+    - PromiseKit/CorePromise
   - RxSwift (4.1.2)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -8,16 +17,18 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - PromiseKit
   - RxSwift
   - SDWebImage
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  PromiseKit: edaca6f0a7ed73b08c287600537d13867a7fabc7
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 0559707b8bec8020b8e7c5820949eda0395f507a
+PODFILE CHECKSUM: 58e34d5d401e9abdec8e9156e50371f487f65a2b
 
 COCOAPODS: 1.4.0

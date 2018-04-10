@@ -10,5 +10,6 @@ target 'KK-Assignment' do
   pod 'SDWebImage'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'PromiseKit'
   
 end

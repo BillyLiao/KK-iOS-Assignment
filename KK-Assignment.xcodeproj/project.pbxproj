@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51353F32207C98170083E950 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51353F2F207C98160083E950 /* NetworkClient.swift */; };
+		51353F33207C98170083E950 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51353F30207C98160083E950 /* NetworkRequest.swift */; };
+		51353F34207C98170083E950 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51353F31207C98170083E950 /* JSONDecodable.swift */; };
 		51785B54207C8ED6003847AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51785B53207C8ED6003847AF /* AppDelegate.swift */; };
 		51785B56207C8ED6003847AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51785B55207C8ED6003847AF /* ViewController.swift */; };
 		51785B59207C8ED6003847AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51785B57207C8ED6003847AF /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		3595519F88BAA77642AD7835 /* Pods-KK-Assignment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KK-Assignment.release.xcconfig"; path = "Pods/Target Support Files/Pods-KK-Assignment/Pods-KK-Assignment.release.xcconfig"; sourceTree = "<group>"; };
 		4B532B9164D0102468DE4924 /* Pods-KK-Assignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KK-Assignment.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KK-Assignment/Pods-KK-Assignment.debug.xcconfig"; sourceTree = "<group>"; };
+		51353F2F207C98160083E950 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		51353F30207C98160083E950 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		51353F31207C98170083E950 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		51785B50207C8ED6003847AF /* KK-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KK-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51785B53207C8ED6003847AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51785B55207C8ED6003847AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5128F334207C9742001AAE2C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				51353F31207C98170083E950 /* JSONDecodable.swift */,
+				51353F2F207C98160083E950 /* NetworkClient.swift */,
+				51353F30207C98160083E950 /* NetworkRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		51785B47207C8ED5003847AF = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +94,7 @@
 		51785B52207C8ED6003847AF /* KK-Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				5128F334207C9742001AAE2C /* Networking */,
 				51785B53207C8ED6003847AF /* AppDelegate.swift */,
 				51785B55207C8ED6003847AF /* ViewController.swift */,
 				51785B57207C8ED6003847AF /* Main.storyboard */,
@@ -167,6 +184,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KK-Assignment/Pods-KK-Assignment-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -174,6 +192,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -224,7 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				51785B56207C8ED6003847AF /* ViewController.swift in Sources */,
+				51353F34207C98170083E950 /* JSONDecodable.swift in Sources */,
 				51785B54207C8ED6003847AF /* AppDelegate.swift in Sources */,
+				51353F33207C98170083E950 /* NetworkRequest.swift in Sources */,
+				51353F32207C98170083E950 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
