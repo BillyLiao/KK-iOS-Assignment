@@ -10,7 +10,7 @@ import UIKit
 
 protocol Navigable {
     var navigationBar: ColorgyNavigationBar { get }
-    var navigationTransitionDelegate: ColorgyNavigationTransitioningDelegate { get }
+    var navigationTransitionDelegate: ColorgyNavigationTransitioningDelegate? { get }
 
     func configureNavigationBar()
 }

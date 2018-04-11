@@ -11,7 +11,7 @@ import RxSwift
 import RxDataSources
 
 internal final class ParkTableViewController: UIViewController, Navigable {
-
+    
     // MARK: - View Component
     private var tableView: UITableView = UITableView()
     internal var navigationBar: ColorgyNavigationBar = ColorgyNavigationBar()
@@ -24,7 +24,7 @@ internal final class ParkTableViewController: UIViewController, Navigable {
     private let disposeBag: DisposeBag = DisposeBag()
     
     // MARK: - Delegate
-    internal var navigationTransitionDelegate = ColorgyNavigationTransitioningDelegate()
+    internal var navigationTransitionDelegate: ColorgyNavigationTransitioningDelegate? = ColorgyNavigationTransitioningDelegate()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,14 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         .asObservable()
         .bind(to: tableView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.map { [unowned self] indexPath in
+            return self.dataSource[indexPath] }
+        .subscribe{ [unowned self] model in
+            let vc = ParkDetailViewController()
+            self.navigationTransitionDelegate?.presentingViewController = vc
+            self.asyncPresent(vc, animated: true)
+        }.disposed(by: disposeBag)
     }
     
     // MARK: - Setup() {
