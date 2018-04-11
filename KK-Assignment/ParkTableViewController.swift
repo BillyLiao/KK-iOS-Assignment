@@ -58,7 +58,11 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         .subscribe{ [unowned self] model in
             let vc = ParkDetailViewController()
             self.navigationTransitionDelegate?.presentingViewController = vc
-            self.asyncPresent(vc, animated: true)
+            self.asyncPresent(vc, animated: true, completion: {
+                if let park = model.element {
+                    vc.configure(with: park)
+                }
+            })
         }.disposed(by: disposeBag)
     }
     
