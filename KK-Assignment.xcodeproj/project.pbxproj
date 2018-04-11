@@ -11,6 +11,10 @@
 		51353F33207C98170083E950 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51353F30207C98160083E950 /* NetworkRequest.swift */; };
 		51353F34207C98170083E950 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51353F31207C98170083E950 /* JSONDecodable.swift */; };
 		51353F36207C99FB0083E950 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51353F35207C99FB0083E950 /* Park.swift */; };
+		5153EDB5207DD63500C06273 /* Navigable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5153EDB4207DD63500C06273 /* Navigable.swift */; };
+		5153EDB7207DD66D00C06273 /* ColorgyNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5153EDB6207DD66D00C06273 /* ColorgyNavigationBar.swift */; };
+		5153EDB9207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5153EDB8207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift */; };
+		5153EDBB207DD77C00C06273 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5153EDBA207DD77C00C06273 /* UIViewControllerExtension.swift */; };
 		51785B54207C8ED6003847AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51785B53207C8ED6003847AF /* AppDelegate.swift */; };
 		51785B59207C8ED6003847AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51785B57207C8ED6003847AF /* Main.storyboard */; };
 		51785B5B207C8ED6003847AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51785B5A207C8ED6003847AF /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 		51353F30207C98160083E950 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		51353F31207C98170083E950 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		51353F35207C99FB0083E950 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
+		5153EDB4207DD63500C06273 /* Navigable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigable.swift; sourceTree = "<group>"; };
+		5153EDB6207DD66D00C06273 /* ColorgyNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyNavigationBar.swift; sourceTree = "<group>"; };
+		5153EDB8207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorgyNavigationTransitioningDelegate.swift; sourceTree = "<group>"; };
+		5153EDBA207DD77C00C06273 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		51785B50207C8ED6003847AF /* KK-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KK-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		51785B53207C8ED6003847AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51785B58207C8ED6003847AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +106,7 @@
 		5153EDB2207DD26700C06273 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5153EDBA207DD77C00C06273 /* UIViewControllerExtension.swift */,
 				51A33022207CF4EA009BA041 /* UITableViewExtension.swift */,
 				51A33024207CFE12009BA041 /* Sequence+GroupBy.swift */,
 				51A3300E207CA0AE009BA041 /* SwiftyJSONExtension.swift */,
@@ -137,11 +146,14 @@
 				5128F334207C9742001AAE2C /* Networking */,
 				51785B53207C8ED6003847AF /* AppDelegate.swift */,
 				51A3301C207CE856009BA041 /* ParkTableViewController.swift */,
+				5153EDB4207DD63500C06273 /* Navigable.swift */,
 				5153EDB3207DD28200C06273 /* Helper */,
 				5153EDB2207DD26700C06273 /* Extensions */,
 				51A3301E207CE8C6009BA041 /* ParkListViewModel.swift */,
 				51A33020207CEFEC009BA041 /* ParkListSection.swift */,
 				51A33018207CDDEB009BA041 /* ParkTableViewCell.swift */,
+				5153EDB6207DD66D00C06273 /* ColorgyNavigationBar.swift */,
+				5153EDB8207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift */,
 				51A33019207CDDEB009BA041 /* ParkTableViewCell.xib */,
 				51353F35207C99FB0083E950 /* Park.swift */,
 				51A33016207CB192009BA041 /* ParkList.swift */,
@@ -298,9 +310,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5153EDB7207DD66D00C06273 /* ColorgyNavigationBar.swift in Sources */,
 				51A3301F207CE8C6009BA041 /* ParkListViewModel.swift in Sources */,
+				5153EDB9207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift in Sources */,
 				51353F36207C99FB0083E950 /* Park.swift in Sources */,
 				51353F34207C98170083E950 /* JSONDecodable.swift in Sources */,
+				5153EDB5207DD63500C06273 /* Navigable.swift in Sources */,
 				51A33011207CA0ED009BA041 /* Queue.swift in Sources */,
 				51A33013207CAA96009BA041 /* GetParkList.swift in Sources */,
 				51A33021207CEFEC009BA041 /* ParkListSection.swift in Sources */,
@@ -311,6 +326,7 @@
 				51785B54207C8ED6003847AF /* AppDelegate.swift in Sources */,
 				51353F33207C98170083E950 /* NetworkRequest.swift in Sources */,
 				51A33025207CFE12009BA041 /* Sequence+GroupBy.swift in Sources */,
+				5153EDBB207DD77C00C06273 /* UIViewControllerExtension.swift in Sources */,
 				51353F32207C98170083E950 /* NetworkClient.swift in Sources */,
 				51A33023207CF4EA009BA041 /* UITableViewExtension.swift in Sources */,
 			);

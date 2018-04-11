@@ -10,22 +10,26 @@ import UIKit
 import RxSwift
 import RxDataSources
 
-internal final class ParkTableViewController: UIViewController {
+internal final class ParkTableViewController: UIViewController, Navigable {
 
     // MARK: - View Component
     private var tableView: UITableView = UITableView()
-    
+    internal var navigationBar: ColorgyNavigationBar = ColorgyNavigationBar()
+
     // MARK: - View Model
     private var viewModel: ParkListViewModel = ParkListViewModel()
     
-    // MARK: - Data Source
+    // MARK: - Rx
     private var dataSource: RxTableViewSectionedReloadDataSource<ParkListSection>!
-    
     private let disposeBag: DisposeBag = DisposeBag()
     
+    // MARK: - Delegate
+    internal var navigationTransitionDelegate = ColorgyNavigationTransitioningDelegate()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureNavigationBar()
         configureTableView()
         
         dataSource = RxTableViewSectionedReloadDataSource<ParkListSection>
@@ -60,8 +64,14 @@ internal final class ParkTableViewController: UIViewController {
     }
 
     // MARK: - View Configuration
+    internal func configureNavigationBar() {
+        navigationBar.title = "公園列表"
+        
+        view.addSubview(navigationBar)
+    }
+
     private func configureTableView() {
-        tableView = UITableView(frame: self.view.frame)
+        tableView = UITableView(frame: CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64))
         tableView.tableFooterView = UIView()
         
         tableView.register(with: ParkTableViewCell.self)
