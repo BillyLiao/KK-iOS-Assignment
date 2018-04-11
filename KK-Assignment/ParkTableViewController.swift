@@ -32,17 +32,8 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         configureNavigationBar()
         configureTableView()
         
-        dataSource = RxTableViewSectionedReloadDataSource<ParkListSection>
-        .init(configureCell: { (ds, tv, ip, item) -> UITableViewCell in
-            let cell = tv.dequeueReusableCell(of: ParkTableViewCell.self, for: ip)!
-            cell.item = item
-            return cell
-        })
-        
-        dataSource.titleForHeaderInSection = { ds, ip in
-            return ds.sectionModels[ip].header
-        }
-        
+        setupDataSource()
+
         bind()
     }
 
@@ -61,6 +52,20 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         .asObservable()
         .bind(to: tableView.rx.items(dataSource: dataSource))
         .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Setup() {
+    private func setupDataSource() {
+        dataSource = RxTableViewSectionedReloadDataSource<ParkListSection>
+        .init(configureCell: { (ds, tv, ip, item) -> UITableViewCell in
+            let cell = tv.dequeueReusableCell(of: ParkTableViewCell.self, for: ip)!
+            cell.item = item
+            return cell
+        })
+        
+        dataSource.titleForHeaderInSection = { ds, ip in
+            return ds.sectionModels[ip].header
+        }
     }
 
     // MARK: - View Configuration
