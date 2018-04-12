@@ -12,6 +12,7 @@ target 'KK-Assignment' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'PromiseKit', '4.5.0'
+  pod 'SnapKit'
   
 end
 
