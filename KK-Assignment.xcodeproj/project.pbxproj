@@ -133,6 +133,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		5153EDC4207E2B4200C06273 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				5153EDB6207DD66D00C06273 /* ColorgyNavigationBar.swift */,
+				5153EDB8207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		51785B47207C8ED5003847AF = {
 			isa = PBXGroup;
 			children = (
@@ -154,18 +163,17 @@
 		51785B52207C8ED6003847AF /* KK-Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				5153EDB2207DD26700C06273 /* Extensions */,
+				5153EDB3207DD28200C06273 /* Helper */,
 				5128F334207C9742001AAE2C /* Networking */,
+				5153EDC4207E2B4200C06273 /* Navigation */,
 				51785B53207C8ED6003847AF /* AppDelegate.swift */,
 				51A3301C207CE856009BA041 /* ParkTableViewController.swift */,
 				5153EDBC207E161D00C06273 /* ParkDetailViewController.swift */,
 				5153EDB4207DD63500C06273 /* Navigable.swift */,
-				5153EDB3207DD28200C06273 /* Helper */,
-				5153EDB2207DD26700C06273 /* Extensions */,
 				51A3301E207CE8C6009BA041 /* ParkListViewModel.swift */,
 				51A33020207CEFEC009BA041 /* ParkListSection.swift */,
 				51A33018207CDDEB009BA041 /* ParkTableViewCell.swift */,
-				5153EDB6207DD66D00C06273 /* ColorgyNavigationBar.swift */,
-				5153EDB8207DD6CE00C06273 /* ColorgyNavigationTransitioningDelegate.swift */,
 				51A33019207CDDEB009BA041 /* ParkTableViewCell.xib */,
 				51353F35207C99FB0083E950 /* Park.swift */,
 				51A33016207CB192009BA041 /* ParkList.swift */,
