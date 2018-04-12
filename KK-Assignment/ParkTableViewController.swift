@@ -91,6 +91,7 @@ internal final class ParkTableViewController: UIViewController, Navigable {
     private func configureTableView() {
         tableView = UITableView(frame: CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64))
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         tableView.register(with: ParkTableViewCell.self)
         

@@ -21,7 +21,7 @@ internal final class ParkListViewModel {
         GetParkList().perform().then { [unowned self] parkList -> Void in
             let dictionary = parkList.items.group(by: { $0.parkName })
             self.sections.value = dictionary.map{ ParkListSection(header: $0.key, items: $0.value) }
-            
+                        
             return 
         }
     }

@@ -48,11 +48,10 @@ final internal class ParkTableViewCell: UITableViewCell {
     }
     
     public func configure(with item: Park) {
-        Queue.main { [unowned self] in
-            self.parkImageView.sd_setImage(with: item.imageURL, placeholderImage: #imageLiteral(resourceName: "defaultImage"))
-            self.nameLabel.text = item.name
-            self.parkNameLabel.text = item.parkName
-            self.introLabel.text = item.intro
-        }
+        parkImageView.sd_setImage(with: item.imageURL, placeholderImage: #imageLiteral(resourceName: "defaultImage"))
+        nameLabel.text = item.name
+        parkNameLabel.text = item.parkName
+        introLabel.text = item.intro
+        introLabel.sizeToFit()
     }
 }
