@@ -19,10 +19,11 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
     private var spotNameLabel: UILabel = UILabel()
     private var openTimeLabel: UILabel = UILabel()
     private var introLabel: UILabel = UILabel()
-    private var otherSpotView: UIScrollView = UIScrollView()
+    private var relatedSpotView: RelatedSpotView = RelatedSpotView()
     
     // MARK: - Delegate
     var navigationTransitionDelegate: ColorgyNavigationTransitioningDelegate? = nil
+    public weak var parentVC: ParkTableViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
         configureNameLabel()
         configureOpenTimeLabel()
         configureIntroLabel()
-        configureOtherSpotView()
+        configureRelatedSpotView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -106,13 +107,10 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
         scrollView.addSubview(introLabel)
     }
     
-    private func configureOtherSpotView() {
-        otherSpotView = UIScrollView(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 90))
-        otherSpotView.alwaysBounceHorizontal = true
+    private func configureRelatedSpotView() {
+        relatedSpotView = RelatedSpotView(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 90))
         
-        otherSpotView.move(16, pointBelow: introLabel)
-        
-        scrollView.addSubview(otherSpotView)
+        scrollView.addSubview(relatedSpotView)
     }
     
     public func configure(with park: Park) {
@@ -123,6 +121,10 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
             self.openTimeLabel.text = "開放時間: \(park.openTime)"
             self.introLabel.text = park.intro
             self.introLabel.sizeToFit()
+            
+            let otherItems = self.parentVC.viewModel.sections.value.filter{ $0.header == park.parkName }.flatMap{ $0.items }.filter{ $0.name != park.name }
+            self.relatedSpotView.configure(with: otherItems)
+            self.relatedSpotView.move(16, pointBelow: self.introLabel)
         }
     }
 }

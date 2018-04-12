@@ -17,7 +17,7 @@ internal final class ParkTableViewController: UIViewController, Navigable {
     internal var navigationBar: ColorgyNavigationBar = ColorgyNavigationBar()
 
     // MARK: - View Model
-    private var viewModel: ParkListViewModel = ParkListViewModel()
+    public var viewModel: ParkListViewModel = ParkListViewModel()
     
     // MARK: - Rx
     private var dataSource: RxTableViewSectionedReloadDataSource<ParkListSection>!
@@ -57,6 +57,7 @@ internal final class ParkTableViewController: UIViewController, Navigable {
             return self.dataSource[indexPath] }
         .subscribe{ [unowned self] model in
             let vc = ParkDetailViewController()
+            vc.parentVC = self
             self.navigationTransitionDelegate?.presentingViewController = vc
             self.asyncPresent(vc, animated: true, completion: {
                 if let park = model.element {
