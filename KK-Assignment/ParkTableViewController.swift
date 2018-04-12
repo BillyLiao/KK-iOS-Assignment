@@ -72,7 +72,7 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         dataSource = RxTableViewSectionedReloadDataSource<ParkListSection>
         .init(configureCell: { (ds, tv, ip, item) -> UITableViewCell in
             let cell = tv.dequeueReusableCell(of: ParkTableViewCell.self, for: ip)!
-            cell.item = item
+            cell.configure(with: item)
             return cell
         })
         

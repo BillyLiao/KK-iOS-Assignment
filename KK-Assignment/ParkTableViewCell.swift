@@ -16,13 +16,6 @@ final internal class ParkTableViewCell: UITableViewCell {
     @IBOutlet weak var parkNameLabel: UILabel!
     @IBOutlet weak var introLabel: UILabel!
     
-    // MARK: Key Data Source
-    public var item: Park! {
-        didSet {
-            updateUI()
-        }
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -54,13 +47,12 @@ final internal class ParkTableViewCell: UITableViewCell {
         introLabel.textColor = UIColor.lightGray
     }
     
-    // MARK: - Update UI
-    private func updateUI() {
+    public func configure(with item: Park) {
         Queue.main { [unowned self] in
-            self.parkImageView.sd_setImage(with: self.item.imageURL, placeholderImage: #imageLiteral(resourceName: "defaultImage"))
-            self.nameLabel.text = self.item.name
-            self.parkNameLabel.text = self.item.parkName
-            self.introLabel.text = self.item.intro
+            self.parkImageView.sd_setImage(with: item.imageURL, placeholderImage: #imageLiteral(resourceName: "defaultImage"))
+            self.nameLabel.text = item.name
+            self.parkNameLabel.text = item.parkName
+            self.introLabel.text = item.intro
         }
     }
 }
