@@ -114,18 +114,22 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
     }
     
     public func configure(with park: Park) {
-        Queue.main { [unowned self] in
-            self.parkImageView.sd_setImage(with: park.imageURL, placeholderImage: #imageLiteral(resourceName: "defaultImage"))
-            self.parkNameLabel.text = park.parkName
-            self.spotNameLabel.text = park.name
-            self.openTimeLabel.text = "開放時間: \(park.openTime)"
-            self.introLabel.text = park.intro
-            self.introLabel.sizeToFit()
-            
-            let otherItems = self.parentVC.viewModel.sections.value.filter{ $0.header == park.parkName }.flatMap{ $0.items }.filter{ $0.name != park.name }
-            self.relatedSpotView.configure(with: otherItems)
-            self.relatedSpotView.move(16, pointBelow: self.introLabel)
-        }
+        parkImageView.sd_setImage(with: park.imageURL, placeholderImage: #imageLiteral(resourceName: "defaultImage"))
+        parkNameLabel.text = park.parkName
+        spotNameLabel.text = park.name
+        openTimeLabel.text = "開放時間: \(park.openTime)"
+        introLabel.text = park.intro
+        introLabel.sizeToFit()
+        
+        let otherItems = parentVC.viewModel.sections.value
+        .filter{ $0.header == park.parkName }
+        .flatMap{ $0.items }
+        .filter{ $0.name != park.name }
+        
+        relatedSpotView.configure(with: otherItems)
+        relatedSpotView.move(16, pointBelow: self.introLabel)
+        
+        scrollView.contentSize.height = relatedSpotView.frame.maxY + 16
     }
 }
 
