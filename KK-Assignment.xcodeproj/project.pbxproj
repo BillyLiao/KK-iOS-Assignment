@@ -146,6 +146,36 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		5160B6062080DA4D0092E95D /* ParkTableView */ = {
+			isa = PBXGroup;
+			children = (
+				51A33020207CEFEC009BA041 /* ParkListSection.swift */,
+				51A3301E207CE8C6009BA041 /* ParkListViewModel.swift */,
+				51A3301C207CE856009BA041 /* ParkTableViewController.swift */,
+				51A33018207CDDEB009BA041 /* ParkTableViewCell.swift */,
+				51A33019207CDDEB009BA041 /* ParkTableViewCell.xib */,
+			);
+			path = ParkTableView;
+			sourceTree = "<group>";
+		};
+		5160B6072080DA690092E95D /* ParkDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				5153EDBC207E161D00C06273 /* ParkDetailViewController.swift */,
+				51A455A3207F488D0010FF29 /* RelatedSpotView.swift */,
+				51A455A5207F48B80010FF29 /* SimpleSpotView.swift */,
+			);
+			path = ParkDetailView;
+			sourceTree = "<group>";
+		};
+		5160B6082080DAC40092E95D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				51353F35207C99FB0083E950 /* Park.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		51785B47207C8ED5003847AF = {
 			isa = PBXGroup;
 			children = (
@@ -172,16 +202,10 @@
 				5128F334207C9742001AAE2C /* Networking */,
 				5153EDC4207E2B4200C06273 /* Navigation */,
 				51785B53207C8ED6003847AF /* AppDelegate.swift */,
-				51A3301C207CE856009BA041 /* ParkTableViewController.swift */,
-				5153EDBC207E161D00C06273 /* ParkDetailViewController.swift */,
-				51A455A3207F488D0010FF29 /* RelatedSpotView.swift */,
-				51A455A5207F48B80010FF29 /* SimpleSpotView.swift */,
+				5160B6062080DA4D0092E95D /* ParkTableView */,
+				5160B6072080DA690092E95D /* ParkDetailView */,
+				5160B6082080DAC40092E95D /* Model */,
 				5153EDB4207DD63500C06273 /* Navigable.swift */,
-				51A3301E207CE8C6009BA041 /* ParkListViewModel.swift */,
-				51A33020207CEFEC009BA041 /* ParkListSection.swift */,
-				51A33018207CDDEB009BA041 /* ParkTableViewCell.swift */,
-				51A33019207CDDEB009BA041 /* ParkTableViewCell.xib */,
-				51353F35207C99FB0083E950 /* Park.swift */,
 				51A33016207CB192009BA041 /* ParkList.swift */,
 				51A33012207CAA96009BA041 /* GetParkList.swift */,
 				51785B57207C8ED6003847AF /* Main.storyboard */,

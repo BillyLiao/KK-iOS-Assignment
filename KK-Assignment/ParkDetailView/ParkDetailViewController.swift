@@ -127,7 +127,6 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
     }
     
     private func configureIntroLabel() {
-        introLabel = UILabel(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 0))
         introLabel.font = UIFont.systemFont(ofSize: 14)
         introLabel.textColor = UIColor.darkText
         introLabel.numberOfLines = 0
@@ -141,8 +140,6 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
     }
     
     private func configureRelatedSpotView() {
-        relatedSpotView = RelatedSpotView(frame: CGRect.zero)
-        
         contentView.addSubview(relatedSpotView)
         
         relatedSpotView.snp.makeConstraints { (make) in

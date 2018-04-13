@@ -36,9 +36,7 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         setupDataSource()
 
         bind()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
+        
         viewModel.loadData()
     }
     
