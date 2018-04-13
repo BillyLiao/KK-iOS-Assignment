@@ -98,11 +98,8 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         view.addSubview(tableView)
     
         tableView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
             make.top.equalToSuperview().offset(64)
-            make.leading.equalTo(0)
-            make.trailing.equalTo(0)
-            make.bottom.equalToSuperview()
+            make.left.right.bottom.equalToSuperview()
         }
     }
 }

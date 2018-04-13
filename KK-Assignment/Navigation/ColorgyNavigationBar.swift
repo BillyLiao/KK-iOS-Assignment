@@ -85,9 +85,7 @@ open class ColorgyNavigationBar: UIView {
     open override func didMoveToSuperview() {
         guard let _ = superview else { return }
         self.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
-            make.leading.equalTo(0)
-            make.trailing.equalTo(0)
+            make.left.right.top.equalToSuperview()
             make.height.equalTo(64)
         }
     }
