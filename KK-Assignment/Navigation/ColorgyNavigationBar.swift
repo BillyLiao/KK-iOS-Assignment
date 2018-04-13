@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 @objc public protocol ColorgyNavigationBarDelegate: class {
 	@objc optional func colorgyNavigationBarBackButtonClicked()
@@ -64,6 +65,10 @@ open class ColorgyNavigationBar: UIView {
         
         addSubview(titleLabel)
         
+        titleLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+        }
+        
         self.layer.zPosition = 1
 	}
     
@@ -76,6 +81,15 @@ open class ColorgyNavigationBar: UIView {
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
+    open override func didMoveToSuperview() {
+        self.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.height.equalTo(64)
+        }
+    }
     
 	// MARK: - Configuration
     fileprivate func getTitleLabel() -> UILabel {

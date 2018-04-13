@@ -87,17 +87,9 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         navigationBar.title = "公園列表"
         
         view.addSubview(navigationBar)
-
-        navigationBar.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
-            make.leading.equalTo(0)
-            make.trailing.equalTo(0)
-            make.height.equalTo(64)
-        }
     }
 
     private func configureTableView() {
-        tableView = UITableView(frame: CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64))
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         
