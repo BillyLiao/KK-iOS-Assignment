@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import SnapKit
 
 internal final class ParkTableViewController: UIViewController, Navigable {
     
@@ -86,6 +87,13 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         navigationBar.title = "公園列表"
         
         view.addSubview(navigationBar)
+
+        navigationBar.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.height.equalTo(64)
+        }
     }
 
     private func configureTableView() {
@@ -96,6 +104,14 @@ internal final class ParkTableViewController: UIViewController, Navigable {
         tableView.register(with: ParkTableViewCell.self)
         
         view.addSubview(tableView)
+    
+        tableView.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.top.equalToSuperview().offset(64)
+            make.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.bottom.equalToSuperview()
+        }
     }
 }
 
