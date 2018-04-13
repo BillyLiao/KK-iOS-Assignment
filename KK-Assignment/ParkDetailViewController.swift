@@ -8,12 +8,14 @@
 
 import UIKit
 import SDWebImage
+import SnapKit
 
 internal final class ParkDetailViewController: UIViewController, Navigable {
     
     // MARK: - View Component
     internal var navigationBar: ColorgyNavigationBar = ColorgyNavigationBar()
     private var scrollView: UIScrollView = UIScrollView()
+    private var contentView: UIView = UIView()
     private var parkImageView: UIImageView = UIImageView()
     private var parkNameLabel: UILabel = UILabel()
     private var spotNameLabel: UILabel = UILabel()
@@ -32,6 +34,7 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
         
         configureNavigationBar()
         configureScrollView()
+        configureContentView()
         configureParkImageView()
         configureParkNameLabel()
         configureNameLabel()
@@ -53,47 +56,74 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
     }
     
     private func configureScrollView() {
-        scrollView = UIScrollView(frame: CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64))
-        scrollView.alwaysBounceVertical = true
         view.addSubview(scrollView)
+
+        scrollView.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(64)
+        }   
+    }
+    
+    private func configureContentView() {
+        scrollView.addSubview(contentView)
+        
+        contentView.isUserInteractionEnabled = true
+        
+        contentView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(view)
+            make.top.bottom.equalToSuperview()
+        }
     }
     
     private func configureParkImageView() {
-        parkImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 275))
         parkImageView.contentMode = .scaleAspectFill
         parkImageView.clipsToBounds = true
         
-        scrollView.addSubview(parkImageView)
+        contentView.addSubview(parkImageView)
+        
+        parkImageView.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(275)
+        }
     }
     
     private func configureParkNameLabel() {
-        parkNameLabel = UILabel(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 24))
         parkNameLabel.font = UIFont.systemFont(ofSize: 16)
         parkNameLabel.textColor = UIColor.lightGray
         
-        parkNameLabel.move(16, pointBelow: parkImageView)
+        contentView.addSubview(parkNameLabel)
         
-        scrollView.addSubview(parkNameLabel)
+        parkNameLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(24)
+            make.top.equalTo(parkImageView.snp.bottom).offset(16)
+        }
     }
     
     private func configureNameLabel() {
-        spotNameLabel = UILabel(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 48))
         spotNameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         spotNameLabel.textColor = UIColor.darkText
         
-        spotNameLabel.move(8, pointBelow: parkNameLabel)
-        
-        scrollView.addSubview(spotNameLabel)
+        contentView.addSubview(spotNameLabel)
+    
+        spotNameLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(48)
+            make.top.equalTo(parkNameLabel.snp.bottom).offset(16)
+        }
     }
     
     private func configureOpenTimeLabel() {
-        openTimeLabel = UILabel(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 24))
         openTimeLabel.font = UIFont.systemFont(ofSize: 14)
         openTimeLabel.textColor = UIColor.darkText
         
-        openTimeLabel.move(8, pointBelow: spotNameLabel)
+        contentView.addSubview(openTimeLabel)
         
-        scrollView.addSubview(openTimeLabel)
+        openTimeLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(24)
+            make.top.equalTo(spotNameLabel.snp.bottom).offset(16)
+        }
     }
     
     private func configureIntroLabel() {
@@ -101,16 +131,26 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
         introLabel.font = UIFont.systemFont(ofSize: 14)
         introLabel.textColor = UIColor.darkText
         introLabel.numberOfLines = 0
+                
+        contentView.addSubview(introLabel)
         
-        introLabel.move(12, pointBelow: openTimeLabel)
-        
-        scrollView.addSubview(introLabel)
+        introLabel.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(16)
+            make.top.equalTo(openTimeLabel.snp.bottom).offset(12)
+        }
     }
     
     private func configureRelatedSpotView() {
-        relatedSpotView = RelatedSpotView(frame: CGRect(x: 16, y: 0, width: view.frame.width - 32, height: 90))
+        relatedSpotView = RelatedSpotView(frame: CGRect.zero)
         
-        scrollView.addSubview(relatedSpotView)
+        contentView.addSubview(relatedSpotView)
+        
+        relatedSpotView.snp.makeConstraints { (make) in
+            make.left.right.equalToSuperview().inset(16)
+            make.height.equalTo(90)
+            make.top.equalTo(introLabel.snp.bottom).offset(16)
+            make.bottom.equalToSuperview().inset(16)
+        }
     }
     
     public func configure(with park: Park) {
@@ -127,9 +167,6 @@ internal final class ParkDetailViewController: UIViewController, Navigable {
         .filter{ $0.name != park.name }
         
         relatedSpotView.configure(with: otherItems)
-        relatedSpotView.move(16, pointBelow: self.introLabel)
-        
-        scrollView.contentSize.height = relatedSpotView.frame.maxY + 16
     }
 }
 
