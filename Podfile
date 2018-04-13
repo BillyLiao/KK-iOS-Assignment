@@ -7,8 +7,19 @@ target 'KK-Assignment' do
 
   # Pods for KK-Assignment
   pod 'RxSwift'
+  pod 'RxDataSources'
   pod 'SDWebImage'
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'PromiseKit', '4.5.0'
+  pod 'SnapKit'
   
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '4.0'
+    end
+  end
 end
